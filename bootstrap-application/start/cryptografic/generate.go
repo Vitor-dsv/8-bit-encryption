@@ -30,8 +30,6 @@ func popListWithNumberOfPositionsIsDivisibleByFive(array []string) []string {
 	return array
 }
 
-
-
 func generateKeySecret(array [][]string) []int {
 	key := getInitialListForKeys()
 

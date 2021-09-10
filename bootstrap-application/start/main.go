@@ -3,32 +3,33 @@ package main
 import (
 	"bootstrap-application/start/cryptografic"
 	"bootstrap-application/start/decryption"
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 )
 
 func main() {
-	var sentence string
 	looping := true
 
 	fmt.Println("Olá, seja bem vindo ao meu algoritmo de criptografia!")
+
 	for looping {
-		fmt.Println("Digite a frase para ser criptografada:")
-		fmt.Scan(&sentence)
+		fmt.Print("Digite a frase para ser criptografada:")
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		sentence := scanner.Text()
 
 		fmt.Println()
+
 		cryptografic.Criptografic(strings.ToUpper(sentence))
 
-		fmt.Println("Frase Criptografada: ")
-		fmt.Println(cryptografic.Cryptograf)
-
-		fmt.Println("Chave Secreta:")
-		fmt.Println(cryptografic.Key)
+		fmt.Println("Frase Criptografada: ", cryptografic.Cryptograf)
+		fmt.Println("Chave Secreta: ", cryptografic.Key)
 
 		decryption.Decrypt(cryptografic.Cryptograf, cryptografic.Key)
 
-		fmt.Println("Frase descriptografada:")
-		fmt.Println(strings.ToLower(decryption.Decryption))
+		fmt.Println("Frase descriptografada:", strings.ToLower(decryption.Decryption))
 
 		fmt.Println()
 

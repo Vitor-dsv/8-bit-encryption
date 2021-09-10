@@ -1,6 +1,8 @@
 package utils
 
-import "bootstrap-application/start/alphabet"
+import (
+	"bootstrap-application/start/alphabet"
+)
 
 func ConvertSentenceToArrayOfIndices(sentence string) []string {
 	var sentenceToArrayIndices []string
